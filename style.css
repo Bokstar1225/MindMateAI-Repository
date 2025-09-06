@@ -70,6 +70,8 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            justify-content: center;
+            align-items: center;
         }
         
         .nav-links a {
@@ -355,6 +357,27 @@
 
         .mindmate-text{
             text-align: center;
+        }
+
+        .mood-tracking{
+            display: grid;
+            place-items: center;
+            background-color: white;
+        }
+
+        .emotion-text{
+            margin-top: 110px;
+        }
+
+        .emotions{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        }
+
+        .emotions p{
+            font-size: 40px;
         }
         
         /* Responsive Design */
