@@ -57,7 +57,7 @@
         .form-container{
             background-color: white;
             width: 750px;
-            height: 430px;
+            height: 470px;
             border-radius: 15px;
         }
 
@@ -153,22 +153,36 @@
         <h2>Fill In The Form</h2>
 
         <form class="form-container">
+            <div id="firstNameDiv">
             <p style="margin-top: 11px;">First Name</p>
-            <input type="text" placeholder="eg. John"><br>
+            <input type="text" id="firstName" placeholder="  eg. John"><br>
+            <p id="nameText"></p>
+            </div>
 
+            <div id="secondNameDiv">
             <p>Last Name</p>
-            <input type="text" placeholder="eg. Doe"><br>
+            <input type="text" id="secondName" placeholder="  eg. Doe"><br>
+            <p id="surnameText"></p>
+            </div>
 
+            <div id="emailDiv">
             <p>Email</p>
-            <input type="email" placeholder="eg. johndoe13@gmail.com"><br>
+            <input type="email" id="email" placeholder="  eg. johndoe13@gmail.com"><br>
+            <p id="emailText"></p>
+            </div>
 
+            <div id="messageTextDiv">
             <p>Message</p>
-            <input type="text" placeholder="Tell us how we can help you"><br>
+            <input type="text" id="textBox" style="height: 70px;" placeholder="  Tell us how we can help you"><br>
+            <p id="messageText"></p>
+            </div>
 
-            <button id="send-button">Send Message</button>
+            <button id="send-button" onclick="formValidation(event)">Send Message</button>
         </form>
     </section>
 
     <p style="margin-top: 30px;"></p>
+
+    <script src="script.js"></script>
 </body>
 </html>
