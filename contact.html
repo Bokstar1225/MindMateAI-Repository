@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        .contact{
+            margin-top: 100px;
+        }
+        
+        .contact-section{
+            text-align: center;
+        }
+        
+        .contact-section h2{
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-details{
+            margin-top: 22px;
+        }
+
+        .contact-grid{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        }
+
+        .contact-card{
+            background: white;
+            width: 350px;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-form{
+            display: grid;
+            place-items: center;
+            margin-top: 110px;
+        }
+
+        .contact-form h2{
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .form-container{
+            background-color: white;
+            width: 750px;
+            height: 430px;
+            border-radius: 15px;
+        }
+
+        .form-container input{
+            display: block;
+            margin: auto;
+            width: 90%;
+            height: 36px;
+            border: solid 1px;
+            border-radius: 6px;
+            border-color: rgb(186, 186, 186);
+            background-color: #fafafa;
+        }
+
+        .form-container p{
+            margin-left: 42px;
+        }
+
+        #send-button{
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 90%;
+            display: block;
+            margin: auto;
+            height: 36px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">M</div>
+                    <span>MindMate AI</span>
+                </div>
+                <div class="menu-toggle" id="menuToggle">☰</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-button">Join Community</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section for contact details -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Want To Get In Touch</h1>
+                <p>Need help? or need technical support our dedicated team is here to help you with all the questions or problems you have</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-section">
+            <h2>Our Details</h2>
+            <p>Here are the different ways you can get in touch with us</p>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="feature-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>Send us an email and get a response</p>
+                </div>
+                <div class="contact-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Chat live with one of our professionals</p>
+                </div>
+                <div class="contact-card">
+                    <div class="feature-icon">☎️</div>
+                    <h3>Telephone</h3>
+                    <p>Get on the phone with a specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Fill In The Form</h2>
+
+        <form class="form-container">
+            <p style="margin-top: 11px;">First Name</p>
+            <input type="text" placeholder="eg. John"><br>
+
+            <p>Last Name</p>
+            <input type="text" placeholder="eg. Doe"><br>
+
+            <p>Email</p>
+            <input type="email" placeholder="eg. johndoe13@gmail.com"><br>
+
+            <p>Message</p>
+            <input type="text" placeholder="Tell us how we can help you"><br>
+
+            <button id="send-button">Send Message</button>
+        </form>
+    </section>
+
+    <p style="margin-top: 30px;"></p>
+</body>
+</html>
