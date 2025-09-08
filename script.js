@@ -1,7 +1,7 @@
 const modal = document.getElementById("cookieModal");
 
 setTimeout(() =>{
-    modal.style.display = "flex"
+    modal.style.display = "flex";
 }, 3500);
 
 function accecptCookie(name, value, days){

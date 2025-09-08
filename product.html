@@ -4,6 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMate AI Product Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        .booking{
+            margin-top: 100px;
+        }
+
+        .booking-form{
+            display: grid;
+            place-items: center;
+            margin-top: 110px;
+        }
+
+        .form-container{
+            background-color: white;
+            width: 650px;
+            height: 360px;
+            border-radius: 15px;
+        }
+
+        .form-container input{
+            display: block;
+            margin: auto;
+            width: 90%;
+            height: 36px;
+            border: solid 1px;
+            border-radius: 6px;
+            border-color: rgb(186, 186, 186);
+            background-color: #fafafa;
+        }
+
+        .form-container p{
+            margin-left: 42px;
+        }
+
+        #booking-button{
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 90%;
+            display: block;
+            margin: auto;
+            height: 36px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4b2e83;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .chatbot-modal {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 350px;
+            max-height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: #4b2e83;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-body {
+            padding: 1rem;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f9f9fc;
+        }
+
+        #chat-form {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        #chat-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        #chat-form button {
+            background-color: #4b2e83;
+            color: white;
+            border: none;
+            padding: 0 1rem;
+            cursor: pointer;
+        }
+
+        #close-window{
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -18,11 +150,136 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="product.html">Product</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="cta-button">Visit Our Blog</button>
             </nav>
         </div>
     </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mindmate AI Products</h1>
+                <p>Choose from a wide range of our products as well as book a one on one consultation with one of our specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking">
+        <div class="booking-form">
+            <form class="form-container">
+                <h2 style="text-align: center;">Make Booking</h2>
+                
+                <p>Name</p>
+                <input type="text">
+
+                <p>Surname</p>
+                <input type="text">
+
+                <p>Email</p>
+                <input type="email">
+
+                <p>Date</p>
+                <input type="date">
+
+                <button id="booking-button">Make Booking</button>
+                
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>How MindMate AI Helps You</h2>
+                <p>Our AI-powered platform offers a comprehensive suite of tools to support your mental health and personal growth</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>AI Chatbot Support</h3>
+                    <p>Get instant access to empathetic conversations and practical advice whenever you need it, 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Mood Tracking</h3>
+                    <p>Monitor your emotional patterns, identify triggers, and track progress with intuitive visualizations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧘</div>
+                    <h3>Daily Meditations</h3>
+                    <p>Access a growing library of guided meditation sessions tailored to your current emotional state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="chat-icon" onclick="toggleChatbot()">
+        💬
+    <span class="notification-badge">1</span>
+    </div>
+
+    <div class="chatbot-modal" id="chatbot-modal">
+        <div class="chatbot-header">
+            <h3>MindMate AI Assistant</h3>
+            <button id="close-window" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-body" id="chat-window">
+            <div class="message bot">Hi, I’m MindMate AI! How can I help you today?</div>
+        </div>
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Type your message..." required />
+                <button type="submit">Send</button>
+            </form>
+    </div>
+
+    <script>
+        function toggleChatbot() {
+            const modal = document.getElementById('chatbot-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        setTimeout(() =>{
+            document.getElementById('chat-icon').style.display = 'flex';
+        }, 3500);
+
+        const chatWindow = document.getElementById("chat-window");
+        const chatForm = document.getElementById("chat-form");
+        const userInput = document.getElementById("user-input");
+
+        chatForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const message = userInput.value.trim();
+            if (!message) return;
+
+           // User message
+           const userDiv = document.createElement("div");
+           userDiv.classList.add("message", "user");
+           userDiv.textContent = message;
+           chatWindow.appendChild(userDiv);
+           chatWindow.scrollTop = chatWindow.scrollHeight;
+           userInput.value = "";
+
+           // API Call
+           try {
+               const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+               const data = await res.json();
+
+               // Bot reply
+               const botDiv = document.createElement("div");
+               botDiv.classList.add("message", "bot");
+               botDiv.textContent = `${data.setup} — ${data.punchline}`;
+               chatWindow.appendChild(botDiv);
+               chatWindow.scrollTop = chatWindow.scrollHeight;
+          } catch (err) {
+               const errorDiv = document.createElement("div");
+               errorDiv.classList.add("message", "bot");
+               errorDiv.textContent = "⚠️ Sorry, I’m having trouble responding right now.";
+               chatWindow.appendChild(errorDiv);
+          }
+      });
+    </script>
 </body>
 </html>
