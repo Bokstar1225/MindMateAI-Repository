@@ -214,6 +214,11 @@
             margin-bottom: 1rem;
             color: var(--dark);
         }
+
+        .feature-card h2 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
         
         /* Benefits Section */
         .benefits {

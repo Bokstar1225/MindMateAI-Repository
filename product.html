@@ -190,27 +190,27 @@
         </div>
     </section>
 
-    <section>
+    <section style="margin-top: 105px;">
         <div class="container">
             <div class="section-title">
-                <h2>How MindMate AI Helps You</h2>
-                <p>Our AI-powered platform offers a comprehensive suite of tools to support your mental health and personal growth</p>
+                <h2>Our Different Pricing Plans</h2>
+                <p>Different pricing plans for for MindMate AI's products and services</p>
             </div>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>AI Chatbot Support</h3>
-                    <p>Get instant access to empathetic conversations and practical advice whenever you need it, 24/7.</p>
+                    <h2>Starter</h2>
+                    <h1>$9.99</h1><p>/month</p>
+                    <p>Perfect for individuals beginning their wellness journey</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Mood Tracking</h3>
-                    <p>Monitor your emotional patterns, identify triggers, and track progress with intuitive visualizations.</p>
+                    <h2>Professional</h2>
+                    <h1>$19.99</h1><p>/month</p>
+                    <p>Advanced features for serious wellness practitioners</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🧘</div>
-                    <h3>Daily Meditations</h3>
-                    <p>Access a growing library of guided meditation sessions tailored to your current emotional state.</p>
+                    <h2>Expert</h2>
+                    <h1>$49.99</h1><p>/month</p>
+                    <p>Full-featured solution for organizations</p>
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@
     <div class="chatbot-modal" id="chatbot-modal">
         <div class="chatbot-header">
             <h3>MindMate AI Assistant</h3>
-            <button id="close-window" onclick="toggleChatbot()">×</button>
+            <button style="color: white;" id="close-window" onclick="toggleChatbot()">×</button>
         </div>
         <div class="chatbot-body" id="chat-window">
             <div class="message bot">Hi, I’m MindMate AI! How can I help you today?</div>
@@ -249,37 +249,90 @@
         const chatForm = document.getElementById("chat-form");
         const userInput = document.getElementById("user-input");
 
-        chatForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const message = userInput.value.trim();
-            if (!message) return;
+        const responses = {
+        greetings: [
+            "Hi there 👋 How are you feeling today?",
+            "Hello! I'm MindMate AI 💙 here to support you.",
+            "Hey! How’s your day going so far?"
+        ],
+        stress: [
+            "Stress can feel heavy 😟. Try closing your eyes, take 3 deep breaths, and relax your shoulders.",
+            "When stressed, a short walk or listening to calming music can really help.",
+            "It’s okay to feel stressed. Breaking big tasks into smaller steps often makes things easier."
+        ],
+        anxiety: [
+            "Anxiety can be overwhelming 💭. A quick grounding trick: name 5 things you see around you.",
+            "Remember, it’s normal to feel anxious. Talking to someone you trust can make a big difference.",
+            "You are stronger than your anxious thoughts 💪. Focus on one step at a time."
+        ],
+        depression: [
+            "I’m sorry you’re feeling low 💙. You’re not alone — reaching out to a friend or counselor can help.",
+            "Small steps matter 🌱. Even a short walk, a shower, or listening to music can lift your mood.",
+            "It’s okay to not feel okay. Be kind to yourself, you’re doing your best."
+        ],
+        motivation: [
+            "You’ve got this! 💪 Try breaking tasks into small steps and reward yourself as you go.",
+            "Sometimes starting is the hardest part. Do one small thing now to build momentum 🚀.",
+            "Believe in yourself 🌟. Progress is progress, no matter how small."
+        ],
+        fallback: [
+            "That’s interesting! Can you tell me more? 💬",
+            "I’m here to listen and support you 🌱.",
+            "Could you explain how you’re feeling a bit more?"
+        ]
+    };
 
-           // User message
-           const userDiv = document.createElement("div");
-           userDiv.classList.add("message", "user");
-           userDiv.textContent = message;
-           chatWindow.appendChild(userDiv);
-           chatWindow.scrollTop = chatWindow.scrollHeight;
-           userInput.value = "";
+    // Get chatbot response
+    function getBotResponse(message) {
+        const msg = message.toLowerCase();
 
-           // API Call
-           try {
-               const res = await fetch("https://official-joke-api.appspot.com/random_joke");
-               const data = await res.json();
+        if (msg.includes("hi") || msg.includes("hello") || msg.includes("hey")) {
+            return randomResponse(responses.greetings);
+        }
+        if (msg.includes("stress") || msg.includes("stressed")) {
+            return randomResponse(responses.stress);
+        }
+        if (msg.includes("anxiety") || msg.includes("anxious")) {
+            return randomResponse(responses.anxiety);
+        }
+        if (msg.includes("depression") || msg.includes("sad") || msg.includes("down")) {
+            return randomResponse(responses.depression);
+        }
+        if (msg.includes("motivation") || msg.includes("focus") || msg.includes("inspire")) {
+            return randomResponse(responses.motivation);
+        }
 
-               // Bot reply
-               const botDiv = document.createElement("div");
-               botDiv.classList.add("message", "bot");
-               botDiv.textContent = `${data.setup} — ${data.punchline}`;
-               chatWindow.appendChild(botDiv);
-               chatWindow.scrollTop = chatWindow.scrollHeight;
-          } catch (err) {
-               const errorDiv = document.createElement("div");
-               errorDiv.classList.add("message", "bot");
-               errorDiv.textContent = "⚠️ Sorry, I’m having trouble responding right now.";
-               chatWindow.appendChild(errorDiv);
-          }
-      });
+        return randomResponse(responses.fallback);
+    }
+
+    // Helper: get random response from a list
+    function randomResponse(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    // Handle chat form submit
+    chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        // User message
+        const userDiv = document.createElement("div");
+        userDiv.classList.add("message", "user");
+        userDiv.textContent = message;
+        chatWindow.appendChild(userDiv);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        userInput.value = "";
+
+        // Bot reply
+        setTimeout(() => {
+            const botDiv = document.createElement("div");
+            botDiv.classList.add("message", "bot");
+            botDiv.textContent = getBotResponse(message);
+            chatWindow.appendChild(botDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }, 500); // slight delay for realism
+    });
     </script>
 </body>
 </html>
