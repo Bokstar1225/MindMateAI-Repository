@@ -135,6 +135,10 @@
             height: 30px;
             border: none;
         }
+
+        .features{
+            margin-top: 1px;
+        }
     </style>
 </head>
 <body>
@@ -153,7 +157,9 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button class="cta-button">Visit Our Blog</button>
+                <a href="blog.html">
+                    <button class="cta-button">Visit Our Blog</button>
+                </a>
             </nav>
         </div>
     </header>
@@ -167,7 +173,7 @@
         </div>
     </section>
 
-    <section class="booking">
+    <section class="booking" id="booking">
         <div class="booking-form">
             <form class="form-container">
                 <h2 style="text-align: center;">Make Booking</h2>
@@ -190,6 +196,7 @@
         </div>
     </section>
 
+    <!--Pricing plans for MindMate-->
     <section style="margin-top: 105px;">
         <div class="container">
             <div class="section-title">
@@ -199,22 +206,27 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <h2>Starter</h2>
-                    <h1>$9.99</h1><p>/month</p>
+                    <h1>R173,43</h1><p>/month</p>
                     <p>Perfect for individuals beginning their wellness journey</p>
+                    <button style="margin-top: 30px;" class="cta-button">Get Started</button>
                 </div>
                 <div class="feature-card">
                     <h2>Professional</h2>
-                    <h1>$19.99</h1><p>/month</p>
+                    <h1>R347,03</h1><p>/month</p>
                     <p>Advanced features for serious wellness practitioners</p>
+                    <button style="margin-top: 30px;" class="cta-button">Get Started</button>
                 </div>
                 <div class="feature-card">
                     <h2>Expert</h2>
-                    <h1>$49.99</h1><p>/month</p>
+                    <h1>R867,83</h1><p>/month</p>
                     <p>Full-featured solution for organizations</p>
+                    <button style="margin-top: 50px;" class="cta-button">Get Started</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <section style="margin-top: 40px;"></section>
 
     <div id="chat-icon" onclick="toggleChatbot()">
         💬
@@ -278,8 +290,8 @@
         fallback: [
             "That’s interesting! Can you tell me more? 💬",
             "I’m here to listen and support you 🌱.",
-            "Could you explain how you’re feeling a bit more?"
-        ]
+            "Could you explain how you’re feeling a bit more?",
+        ],
     };
 
     // Get chatbot response
