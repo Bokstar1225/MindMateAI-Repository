@@ -80,6 +80,54 @@
         </div>
     </section>
 
-    <section style="margin-top: 30px; background-color: white;"></section>
+    <section id="mood" style="background-color: white;">
+        <p id="moodText"></p>
+    </section>
+
+    <script>
+        let verySad = document.getElementById("verysad");
+        let sad = document.getElementById("sad");
+        
+        let content = document.getElementById("content");
+        let happy = document.getElementById("happy");
+        
+        let verryHappy = document.getElementById("verryhappy");
+        let moodText = document.getElementById("moodText");
+
+        verySad.addEventListener("click", () =>{
+            moodText.textContent = "We are really sorry to hear that. Talking to someone can help";
+            moodText.style.color = "red";
+            moodText.style.fontSize = "23px";
+            moodText.style.textAlign = "center";
+        });
+
+        sad.addEventListener("click", () =>{
+            moodText.textContent = "Sorry your feeling this way. Remember to keep pushing";
+            moodText.style.color = "orange";
+            moodText.style.fontSize = "23px";
+            moodText.style.textAlign = "center";
+        });
+
+        content.addEventListener("click", () =>{
+            moodText.textContent = "Being or feeling content is not always bad";
+            moodText.style.color = "yellow";
+            moodText.style.fontSize = "23px";
+            moodText.style.textAlign = "center"
+        });
+
+        happy.addEventListener("click", () =>{
+            moodText.textContent = "We are glad you are feeling good";
+            moodText.style.color = "green";
+            moodText.style.fontSize = "23px";
+            moodText.style.textAlign = "center"
+        });
+
+        verryHappy.addEventListener("click", () =>{
+            moodText.textContent = "Its just one of those happy days, this is what we want to hear";
+            moodText.style.color = "darkgreen";
+            moodText.style.fontSize = "23px";
+            moodText.style.textAlign = "center"
+        });
+    </script>
 </body>
 </html>
