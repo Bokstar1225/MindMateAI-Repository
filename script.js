@@ -1,18 +1,27 @@
 const modal = document.getElementById("cookieModal");
 
-setTimeout(() =>{
-    modal.style.display = "flex";
-}, 3500);
-
+window.onload = function() {
+    const consent = localStorage.getItem("cookieConsent");
+    if (!consent) {
+      // Show after 3 seconds only if user hasn't decided before
+      setTimeout(() => {
+        modal.style.display = 'flex';
+      }, 3500);
+    }
+  };
+  
 function accecptCookie(name, value, days){
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+    localStorage.setItem("cookieConsent", "accepted");
     modal.style.display = "none";
 }
 
 function declineCookie(){
     modal.style.display = "none";
+    localStorage.setItem("cookieConsent", "declined");
+    modal.style.display = 'none';
 }
 
 function formValidation(event){

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMate AI</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Modal Background */
     .modal-overlay {
@@ -83,10 +84,35 @@
       color: white;
     }
 
-    .social-media {
+    .social-media{
         display: grid;
         place-items: center;
         margin-top: 39px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+        
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+        
+    .social-icon:hover {
+        background: #5b6bf0;
+        transform: translateY(-3px);
     }
 
     /* Animation */
@@ -99,14 +125,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .social-mediaIcons{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2em;
-        margin-top: 11px;
     }
     </style>
 </head>
@@ -271,18 +289,17 @@
             <div class="social-media">
                     <h2>Social Media</h2>
 
-                    <div class="social-mediaIcons">
-                        <a href="https://www.facebook.com/"><img src="icons8-facebook-50.png" alt="icon of facebook"></a>
-                        <a href="https://www.instagram.com/"><img src="icons8-instagram-50.png" alt="icon of instagram"></a>
-                        <a href="https://www.tiktok.com/"><img src="icons8-tiktok-50.png" alt="icon of tiktok"></a>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/?lang=en-za" class="social-icon x-twitter"><span class="x-icon">X</span></a>
+                        <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/" class="social-icon"><i class="fab fa-youtube"></i></a>
                     </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 MindMate AI. All rights reserved.</p>
             </div>
-        </div>
-        <div>
-           <a style="text-decoration: none; color: white;" href="https://icons8.com/icons">Link to icons8</a>
         </div>
     </footer>
 
